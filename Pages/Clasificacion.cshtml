@@ -1,0 +1,44 @@
+﻿@page
+@model ecoQuest1.Pages.ClasificacionModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Clasificaciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="classification-container">
+        <h1 class="classification-title">Tabla de Progreso de Colaboradores</h1>
+        <div class="classification-leaderboard">
+
+
+          @if (Model.LeaderboardList != null && Model.LeaderboardList.Count > 0)
+            {
+                var rank = 1;
+                foreach (var empleado in Model.LeaderboardList)
+                {
+
+                    <div class="classification-entry mb-3">
+                        <span class="classification-rank">@rank</span>
+                        <div class="classification-progress-container">
+                            <div class="classification-progress-bar" style="width: @empleado.Porcentaje%;"></div>
+                        </div>
+                        <span class="classification-percentage">@empleado.Porcentaje%</span>
+                        <span class="classification-name">@empleado.Nombre @empleado.Apellido</span>
+                    </div>
+                    rank++;
+                }
+            }
+            else
+            {
+                <p>No data available.</p>
+            }
+           
+        </div>
+    </div>
+</body>
+</html>

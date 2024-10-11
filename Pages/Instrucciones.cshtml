@@ -1,0 +1,174 @@
+﻿@page
+@model ecoQuest1.Pages.InstruccionesModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Interface Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+
+        <div class="container_instru">
+            <br>
+            <h2 strong>Instrucciones de Juego</h2>
+
+            <p>
+                Al iniciar el juego, el jugador deberá autenticarse utilizando su correo electrónico y contraseña.
+                Una vez ingresado, aparecerá en una aldea que alberga tres casas distintas, cada una representando un módulo específico:
+                Ética, Seguridad y Tecnología (TEDI). La interacción inicial del jugador será con un aldeano (NPC) que proporcionará una
+                introducción a la aldea y las actividades a realizar. Cada casa cuenta con un aldeano adicional ubicado en su entrada, el
+                cual brindará detalles sobre las tareas a realizar dentro de cada módulo. Es obligatorio que el jugador converse con este
+                aldeano para poder acceder a las casas y sus respectivos módulos
+            </p><br>
+
+            <h4 strong>Casa de Ética:</h4>
+            <p>
+                Dentro de la Casa de Ética, el jugador encontrará al aldeano que previamente estaba en la entrada. Este aldeano indicará que
+                se han extraviado nueve objetos en el interior de la casa. El jugador deberá explorar meticulosamente para localizar estos objetos,
+                utilizando una tabla que muestra nueve pistas, las cuales no solo indicarán la ubicación probable de los objetos sino también sugerirá
+                su naturaleza. Al hallar cada objeto, se presentará una pregunta relacionada con el manual de ética. La calificación final del jugador
+                dependerá del número de respuestas correctas proporcionadas. Es necesario encontrar todos los objetos para salir de la casa, y alcanzar
+                una calificación mínima de 80 para lograr acreditar el módulo, si no se alcanza esta puntuación el jugador deberá volver a comenzar la casa.
+            </p><br>
+
+            <h4 strong>Casa de Seguridad:</h4>
+            <p>
+                La mecánica dentro de la Casa de Seguridad es similar a la de Ética. El aldeano dentro de la casa explicará que se deben encontrar nueve
+                objetos perdidos. El jugador deberá usar las pistas proporcionadas en una tabla para descubrir los objetos y responder preguntas relacionadas
+                con el manual de Seguridad. La calificación final del jugador dependerá del número de respuestas correctas proporcionadas. Es necesario encontrar
+                todos los objetos para salir de la casa, y alcanzar una calificación mínima de 80 para lograr acreditar el módulo, si no se alcanza esta puntuación
+                el jugador deberá volver a comenzar la casa.
+            </p><br>
+
+            <h4 strong>Casa de TEDI:</h4>
+            <p>
+                Accesible únicamente para colaboradores del departamento de TEDI, esta casa presenta un desafío con siete objetos perdidos.
+                El jugador utilizará las pistas proporcionadas para ubicar cada objeto y responder preguntas pertinentes al manual de TEDI. Similar a
+                las otras casas, la calificación final del jugador dependerá del número de respuestas correctas proporcionadas. Es necesario encontrar
+                todos los objetos para salir de la casa, y alcanzar una calificación mínima de 80 para lograr acreditar el módulo, si no se alcanza esta
+                puntuación el jugador deberá volver a comenzar la casa.
+            </p><br>
+        </div>
+
+        <div class="container_control text-center ">
+            <div class="control_cont">
+                <div class="boton-container">
+
+                    <form method="post" asp-page-handler="Controles">
+                        <button type="submit" class="image-button">
+                            <img src="~/images/Controles.png" alt="Controles">
+                        </button>
+                    </form>
+
+                    <form method="post" asp-page-handler="Progreso">
+                        <button type="submit" class="image-button">
+                            <img src="~/images/Progreso.png" alt="Progreso">
+                        </button>
+                    </form>
+
+                    <form method="post" asp-page-handler="Ganar">
+                        <button type="submit" class="image-button">
+                            <img src="~/images/GANAR.jpeg" alt="Ganar">
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <h2>@Model.Titulo</h2>
+            <div>
+                @Html.Raw(Model.Message)
+            </div>
+            <iframe width="290" height="197" src="@Model.VideoUrl" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+        </div>
+
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="credits">
+                    <h2 class="pt-5 text-center">Créditos ECOQUEST: Las Cámaras Del Entendimiento </h2>
+                    <h2>Casa desarrolladora: Titanes</h2>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="credits flex-credits ">
+                    <div class="name-column">
+                        <p>María Castresana Martinez</p>
+                        <p>María Renée Ramos Valdez</p>
+                        <p>Marcelo Cárdenas Leal</p>
+                    </div>
+                    <div class="name-column">
+                        <p>Diego Sánchez Magaña</p>
+                        <p>Lorna García</p>
+                        <p>Fernanda Vásquez</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="credits align-items">
+                    <h2 class="pt-5 text-center">Créditos de Sonidos:</h2>
+                    <p>
+                        Todos los sonidos utilizados pertenecen a Pixabay,
+                        todos los derechos y créditos a su creador.
+
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="credits align-items">
+                    <h2 class="pt-5 text-center">Créditos de los Escenarios:</h2>
+                    <p>
+                        Todos los escenarios utilizados pertenecen
+                        al paquete Juego de rol 2D de arktentrion,
+                        todos los derechos y créditos a su creador.
+                    </p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="credits align-items">
+                    <h3>
+                        Agradecimientos  especiales a AWAQ y al
+                        Tecnológico de Monterrey
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+</html>

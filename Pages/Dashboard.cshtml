@@ -1,0 +1,113 @@
+﻿@page
+@model ecoQuest1.Pages.DashboardModel
+@{
+}
+<div class="text-center mt-2 pt-3">
+    <h1 class="green-text">Hola, @Model.UserName.</h1>
+</div>
+
+<div class="wrapper">
+    <div class="row justify-content-center">
+        <div class=" row container-panel-dashboard">
+            <div class="col text-left ">
+                <h2 class="custom-h2-style">Progreso General de Módulos</h2>
+            </div>
+
+
+            @*<div class="col ">
+                <div class="container-module">
+
+                     @if (!string.IsNullOrEmpty(Model.EmbedUrl))
+                    {
+                        <iframe width="176" height="176" src="@Model.EmbedUrl" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    } 
+                </div>
+            </div>*@
+
+            <div class="col ">
+                <div>
+                    @if (!string.IsNullOrEmpty(Model.EmbedUrlDashboard))
+                    {
+                        <iframe width="530" height="186" src="@Model.EmbedUrlDashboard" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row w-100 mt-4">
+            <div class="col text-center">
+                <h2 class="custom-h2-style green-text">Calificaciones</h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ml-3 mb-3">
+
+                <div class="container-panel-1 mt-2">
+                    <div class="text-align-center">
+                        <p class="texto-colaboradores mb-1">Ética</p>
+                        <div class="container-module-dashboard mb-2">
+                            @if (!string.IsNullOrEmpty(Model.EmbedUrlEtica))
+                            {
+                                <iframe width="176" height="176" src="@Model.EmbedUrlEtica" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            }
+                        </div>
+                        <div class="row justify-content-center">
+
+                            <div class="button-colaboradores-verde justify-content-center">
+                                Intentos: @Model.CountE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col ml-3 mb-3 ">
+                <div class="container-panel-1 mt-2">
+                    <div class="text-align-center">
+                        <p class="texto-colaboradores mb-1">Seguridad</p>
+                        <div class="container-module-dashboard mb-2">
+                            @if (!string.IsNullOrEmpty(Model.EmbedUrlSeguridad))
+                            {
+                                <iframe width="176" height="176" src="@Model.EmbedUrlSeguridad" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            }
+                        </div>
+                        <div class="row justify-content-center">
+
+                            <div class="button-colaboradores-naranja">
+                                Intentos: @Model.CountS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="col ml-3 mb-3">
+
+                <div class="container-panel-1 mt-2">
+                    <div class="text-align-center">
+                        <p class="texto-colaboradores mb-1">TEDI</p>
+                        <div class="container-module-dashboard mb-2">
+                            @if (!string.IsNullOrEmpty(Model.EmbedUrlTEDI))
+                            {
+                                <iframe width="176" height="176" src="@Model.EmbedUrlTEDI" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            }
+                        </div>
+                        <div class="row justify-content-center">
+
+                            <div class="button-colaboradores-amarillo">
+                                Intentos: @Model.CountT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿@page
+@model ecoQuest1.Pages.EditarModel
+@{
+}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="site.css" />
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function () {
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+            });
+        });</script>
+</head>
+
+<body>
+    <div class="editar-wrapper ">
+        <div class="editar-container-panel">
+            <div class="row">
+                <div class="col-md-3 editar-panel-uno" style="padding-top: 0">
+                    <div class="editar-foto">
+                        <img src="~/images/arboless.png" class="editar-img-perfil" alt="Foto de perfil" />
+                    </div>
+                    <div class="mt-2 text-center">
+                        <a href="~/Feedback" class="btn btn-primary">Responder Feedback</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="editar-header">
+                        <h1>@Model.UserName @Model.Apellido</h1>
+                        <p>Departamento: @ViewData["NombreDepartamento"]</p>
+                        <p>ID Empleado:  @Model.IdEmpleado</p>
+                    </div>
+                    <div class="editar-panel-dos">
+                        <h2>Información de contacto</h2>
+                        <p><strong>Correo Electrónico:</strong> @Model.Email</p>
+                        <p><strong>Teléfono:</strong> @Model.Celular</p>
+                        <p><strong>Nacionalidad:</strong> @Model.Pais</p>
+                    </div>
+                    <div class="editar-panel-tres">
+                        <h2>Información personal</h2>
+                        <p><strong>Edad:</strong> @Model.Edad</p>
+                        <p><strong>Género:</strong> @Model.Genero</p>
+                        <p><strong>LinkedIn:</strong> <a href="@Model.Linkedin">@Model.Linkedin</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="editar-panel-bio">
+                        <h2>Biografía</h2>
+                        @if (!string.IsNullOrEmpty(Model.BiografiaActual))
+                        {
+                            <p>@Model.BiografiaActual</p>
+                        }
+                    </div>
+                    <div class="editar-panel-editar-bio">
+                        <h2>Edita Tu Biografía</h2>
+                        <form method="post">
+                            <div>
+                                <textarea asp-for="Input.Biografia" class="form-control mb-1" style="height: 141px;"></textarea>
+                                <span asp-validation-for="Input.Biografia" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Agregar Biografía</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

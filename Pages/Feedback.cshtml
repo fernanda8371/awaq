@@ -1,0 +1,37 @@
+﻿@page
+@model ecoQuest1.Pages.FeedbackModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="custom-main">
+        <h1>Formulario Feedback</h1>
+        <form method="post" class="custom-feedback-form">
+            <div class="custom-form-group">
+                <label asp-for="Input.Sugerencias"><span>1</span> ¿Sugerencias para mejorar el juego?</label>
+                <textarea asp-for="Input.Sugerencias"></textarea>
+                <span asp-validation-for="Input.Sugerencias" class="text-danger"></span>
+            </div>
+            <div class="custom-form-group">
+                <label asp-for="Input.QueQuitar"><span>2</span> ¿Qué se debería quitar?</label>
+                <textarea asp-for="Input.QueQuitar"></textarea>
+                <span asp-validation-for="Input.QueQuitar" class="text-danger"></span>
+            </div>
+            <div class="custom-form-group">
+                <label asp-for="Input.Preguntas"><span>3</span> Pregunta(s) para AWAQ</label>
+                <textarea asp-for="Input.Preguntas"></textarea>
+                <span asp-validation-for="Input.Preguntas" class="text-danger"></span>
+            </div>
+            <button type="submit" class="custom-submit">Enviar formulario</button>
+        </form>
+    </main>
+</body>
+</html>

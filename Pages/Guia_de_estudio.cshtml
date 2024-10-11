@@ -1,0 +1,801 @@
+﻿@page
+@model ecoQuest1.Pages.Guia_de_estudioModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWAQ Study Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+    @*<div class="container-fluid">*@
+
+
+    <div class="row">
+        <div class="col-lg-9 container-study">
+            <div class="gris p-3 mt-3 mb-3">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="study-text mt-5 ml-3">¿Qué quieres empezar<br>a estudiar hoy?</h2>
+                        <div class="dropdown mt-3">
+                            @*<a class="btn dropdown-toggle search-bar mt-3 ml-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Código ético de AWAQ
+                                </a>*@
+                            <input type="text" class="form-control search-bar mt-3 ml-3 " style=" display: flex; align-items: center; background-color: #f8f9fa; border-radius: 30px; padding: 20px 20px; width: 100%; max-width: 545px; height: 57px;" id="searchInput" placeholder="Buscar en Código ético de AWAQ">
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img class="img-persona" src="~/images/persona-awaq.png" alt="Persona AWAQ" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="pt-3">Resultados de búsqueda</h2>
+                    <div class="progress-period" style="overflow-y: auto; " id="searchResults">
+
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="container-temas mb-2">Estudia por temas</div>
+                    <div class="d-flex justify-content-between container-temas-3">
+                        <div class="color tedi" onclick="showGuia('tedi')">
+                            TEDI
+                        </div>
+                        <div class="color codigo" onclick="showGuia('etica')">
+                            Código de Ética
+                        </div>
+                        <div class="color seguridad" onclick="showGuia('seguridad')">
+                            Seguridad
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    @*</div>*@
+
+    <div class="col-lg-3 right-panel">
+
+
+        <div id="guia-etica" class="guia-section">
+            <div class="p-3 rounded mb-3">
+                <h2 style="color: white;">Guía de estudio Código de Ética</h2>
+                <div class="p-3 mb-2 guia" id="etica-tema-1">
+                    <p class="temas-header text-align-center">Principios Éticos y Pautas de Conducta</p>
+                    <p>
+
+                        1. Principios<br>
+                        Respeto:<br>
+                        Tratar a todas las personas dignamente, sin discriminación por sexo, raza, nacionalidad o religión.<br>
+                        Colaborar e impulsar políticas inclusivas.<br>
+                        Integridad:<br>
+                        Actuar con imparcialidad, justicia y buena fe.<br>
+                        Orientar el trabajo hacia la lucha contra la pobreza y la sostenibilidad, evitando beneficios personales de los recursos públicos.<br>
+
+
+                    </p>
+
+                    <button class="btn btn-temas" onclick="nextTema(2, 'etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 guia d-none" id="etica-tema-2">
+                    <p class="temas-header text-align-center">Principios Éticos y Pautas de Conducta</p>
+                    <p>
+                        Responsabilidad:<br>
+                        Respetar la legislación y actuar honesta y ejemplarmente.<br>
+                        Reconocer errores, solucionarlos y evitar su repetición.<br>
+                        Profesionalidad:<br>
+                        Dedicación, entrega y compromiso con la calidad y la mejora continua.<br>
+                        Buscar siempre la excelencia profesional mediante formación permanente.<br>
+                        Compromiso:<br>
+                        Mantener la lealtad y compromiso con la Organización, proyectos y programas.<br>
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(1, 'etica')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(3, 'etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="etica-tema-3">
+                    <p class="temas-header text-align-center">Principios Éticos y Pautas de Conducta</p>
+                    <p>
+
+
+                        Participación y Diálogo:<br>
+                        <br>
+                        Trabajar en equipo, compartir conocimientos y fomentar la comunicación efectiva.<br>
+                        Reconocer el derecho a opinar de todos los afectados.<br>
+                        Transparencia:<br>
+                        <br>
+                        Acreditar de forma veraz y completa los resultados y criterios seguidos.<br>
+                        Responder diligentemente a las demandas de información.<br>
+                        Pautas Básicas<br>
+                        Actuar en Beneficio de la ONGD:<br>
+                        <br>
+                        Evitar intereses personales y cualquier discriminación.<br>
+
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(2, 'etica')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(4, 'etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="etica-tema-4">
+                    <p class="temas-header text-align-center">Principios Éticos y Pautas de Conducta</p>
+                    <p>
+
+                        Respeto con los Colaboradores:<br>
+                        <br>
+                        Actuar con compromiso, corresponsabilidad, igualdad e imparcialidad.<br>
+                        Colaborar con transparencia y buena fe.<br>
+                        Respeto al Resto de Compañeros:<br>
+                        <br>
+                        Respetar diferentes culturas, dialogar y trabajar en equipo.<br>
+                        Respeto a la ONG:<br>
+                        <br>
+                        Eficacia, honradez, profesionalidad y responsabilidad.<br>
+                        Respetar el nombre de la organización como embajadores. <br>
+
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(3, 'etica')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(5,'etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="etica-tema-5">
+                    <p class="temas-header text-align-center">Normas de actuación</p>
+                    <p>
+
+                        Cumplimiento de Leyes:<br>
+                        <br>
+                        Todos los integrantes de la ONGD deben cumplir todas las leyes en los países en que operamos.<br>
+                        Prohibición de Sustancias Psicotrópicas:<br>
+                        Queda expresamente prohibido el consumo, posesión o distribución de sustancias psicotrópicas relacionadas con las actividades de la organización.<br>
+                        Declaración de Conflictos de Interés:<br>
+                        Declarar cualquier conflicto de interés para su correcta resolución.<br>
+                        No Explotar Vulnerabilidad:<br>
+                        <br>
+                        Nunca explotar la vulnerabilidad de una persona, especialmente mujeres o niños.<br>
+
+
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(4, 'etica')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(6,'etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="etica-tema-6">
+                    <p class="temas-header text-align-center">Normas de actuación</p>
+                    <p>
+
+                        Confidencialidad y Normativas de Ciberseguridad:<br>
+                        <br>
+                        Respetar la confidencialidad de la información y las normativas de ciberseguridad de la organización.<br>
+                        Regalos y Beneficios:<br>
+                        El personal no aceptará ni ofrecerá regalos que comprometan la objetividad del proyecto.<br>
+                        Responsabilidad de la Dirección:<br>
+                        La Dirección garantizará el conocimiento del código y tomará medidas disciplinarias según corresponda.<br>
+                        Consecuencias por Incumplimiento de Ley:<br>
+                        El incumplimiento de la ley acarreará consecuencias para quienes la vulneren.<br>
+
+
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(5, 'etica')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-completado" onclick="complete('etica')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="etica-completado">
+
+
+                    <p class="temas-header">¡Has completado todos los temas!</p>
+                    <button class="btn btn-temas" onclick="showGuia('etica')">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="guia-seguridad" class="guia-section">
+            <div class="p-3 rounded mb-3">
+                <h2 style="color: white;">Guía de estudio Seguridad</h2>
+                <div class="p-3 mb-2 guia" id="seguridad-tema-1">
+                    <p class="temas-header text-align-center">
+                        Objetivos de Ciberseguridad
+                    </p>
+                    <p>
+                        Educación y Conciencia para Nuevos Usuarios:<br>
+                        <br>
+                        Proporcionar información y buenas prácticas de seguridad cibernética a los nuevos usuarios.<br>
+                        Crear conciencia sobre las amenazas actuales en el mundo digital.<br>
+                        Noción para Colaboradores de Awaq sobre Evitar Ataques Cibernéticos:<br>
+                        Capacitar a los colaboradores de Awaq para reconocer y prevenir ataques cibernéticos.<br>
+                        Fomentar prácticas seguras en el uso de tecnologías y sistemas.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="nextTema(2, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-2">
+                    <p class="temas-header text-align-center">
+                        Objetivos de Ciberseguridad
+                    </p>
+                    <p>
+                        Resiliencia: Recuperación Rápida de Incidentes de Seguridad:<br>
+                        <br>
+                        Implementar medidas que permitan recuperarse rápidamente de incidentes de seguridad.<br>
+                        Minimizar el impacto en las operaciones de la organización.<br>
+                        Cumplimiento Normativo en Ciberseguridad:<br>
+                        <br>
+                        Cumplir con las normativas, estándares y regulaciones relacionadas con la protección de datos y sistemas digitales.<br>
+                        Garantizar la seguridad adecuada de la información.
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(1, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(3, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-3">
+                    <p class="temas-header text-align-center">
+                        Contraseñas Seguras
+                    </p>
+                    <p>
+                        Longitud y Composición:<br>
+                        <br>
+                        Las contraseñas deben tener al menos 12 caracteres (cuando sea posible según la tecnología).<br>
+                        Deben contener una mezcla de caracteres alfabéticos y no alfabéticos o al menos dos tipos de caracteres no alfabéticos.<br>
+                        No deben incluir el ID del usuario como parte de la contraseña.<br>
+                        Evita patrones restringidos como “qwerty”, “asdf”, “1234”, etc.<br>
+                        Nunca deben ser un palíndromo.<br>
+                        Propiedad y Confidencialidad:<br>
+                        <br>
+                        La contraseña debe ser exclusivamente de su propiedad y nunca compartirla con nadie.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(2, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(4, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-4">
+                    <p class="temas-header text-align-center">
+                        Ciberataques: Phishing
+                    </p>
+                    <p>
+                        Definición:<br>
+
+                        <br>
+                        El phishing es un tipo de ataque cibernético utilizado para robar datos personales y financieros.<br>
+                        Los hackers se hacen pasar por una entidad de confianza para engañar a los destinatarios.<br>
+                        <br>
+                        Efectos y Precauciones:<br>
+
+                        Un ataque de phishing puede tener efectos devastadores para las personas y las organizaciones.<br>
+                        Siempre debemos estar alerta y tomar medidas preventivas.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(3, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(5, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-5">
+                    <p class="temas-header text-align-center">
+                        Indicadores de Phishing
+                    </p>
+                    <p>
+
+                        Comprobación del Remitente:<br>
+                        Verifica el nombre de dominio del remitente, ya que los atacantes suelen utilizar nombres falsos que imitan organizaciones de confianza.<br>
+                        Análisis del Mensaje:<br>
+                        Busca fallos gramaticales o faltas ortográficas en el mensaje del correo.<br>
+                        Está atento a inconsistencias en la información proporcionada.<br>
+                        Solicitudes Sospechosas:<br>
+                        Revise si hay solicitudes inusuales en el correo.<br>
+                        No hagas clic en enlaces sin verificar su procedencia y validez.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(4, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(6, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-6">
+                    <p class="temas-header text-align-center">
+                        Consejos Útiles
+
+                    </p>
+                    <p>
+
+                        Al recibir correos electrónicos externos:<br>
+                        Si necesitas ponerte en contacto con el remitente, no respondas al correo original ni llames al número proporcionado.<br>
+                        Verifica primero que el remitente sea legítimo.<br>
+                        Desconfía de muestras de aprecio, elogios, recompensas o felicitaciones sin razón aparente.<br>
+                        Verifica la URL en la página de inicio de sesión de SSO. Las apariencias pueden engañar.<br>
+                        Si identificas un correo phishing, reporta con el botón de phishing y alerta a <b>seguridad@somosawaq.org.</b>
+                        <br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(5, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(7, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-7">
+                    <p class="temas-header text-align-center">
+                        Consejos Útiles
+
+                    </p>
+                    <p>
+                        Al recibir correos electrónicos externos, si es necesario ponerse en contacto con el remitente, no responda al correo electrónico original ni llame al numero proporcionado. Asegúrese de verificar primero que el remitente sea legitimo.<br>
+                        Las muestras de aprecio, los elogios, las recompensas, las felicitaciones o los obsequios recibidos sin ninguna razón especial deber ser tratados con precaución.<br>
+                        Verifique la URL en la página de inicio de sesión de SSO. No juzgue por el aspecto de la página; las apariencias engañan.<br>
+
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(6, 'seguridad')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(8, 'seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="seguridad-tema-8">
+                    <p class="temas-header text-align-center">
+                        Cumplimiento
+                    </p>
+                    <p>
+                        La organización tiene una política de cero tolerancias para fraudes o violaciones de seguridad. Las sanciones disciplinarias en línea con las leyes locales y los principios de justicia natural serán administradas y aplicadas con los procesos disciplinarios o sancionatorios de la organización.
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(7, 'seguridad')"><i class="bi bi-arrow-up-left"></i></button>
+                    <button class="btn btn-completado" onclick="complete('seguridad')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 guia d-none" id="seguridad-completado">
+                    <p class="temas-header">Completado</p>
+                    <p>¡Has completado todos los temas!</p>
+                    <button class="btn btn-temas" onclick="previousTema(1, 'seguridad')"><i class="bi bi-arrow-clockwise"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="guia-tedi" class="guia-section">
+            <div class="p-3 rounded mb-3">
+                <h2 style="color: white;">Guía de estudio TEDI</h2>
+                <div class="p-3 mb-2 guia" id="tedi-tema-1">
+                    <p class="temas-header text-align-center">Introducción a la Tecnología</p>
+                    <p>
+
+                        HTML:<br>
+                        Presentar desafíos que requieran la identificación y manipulación<br>
+                        de elementos HTML dentro del juego.<br>
+                        Proporcionar ejemplos interactivos que muestren cómo se<br>
+                        estructura y utiliza HTML para crear contenido web.<br>
+                        CSS:<br>
+                        Desafiar al usuario a aplicar estilos CSS a elementos<br>
+                        específicos dentro del juego para cambiar su apariencia.<br>
+                        Proporcionar ejercicios prácticos que muestren cómo se <br>
+                        utilizan selectores CSS para dirigirse a elementos específicos <br>
+                        en una página web.
+
+                    </p>                <button class="btn btn-temas" onclick="nextTema(2, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-2">
+                    <p class="temas-header text-align-center">Introducción a la Tecnología</p>
+                    <p>
+                        TypeScript:<br>
+                        Introducir conceptos básicos de tipado estático y <br>
+                        clases en TypeScript mediante desafíos que requieran <br>
+                        la manipulación de datos dentro del juego.<br>
+                        React:<br>
+                        Presentar desafíos que requieran la creación y manipulación de componentes React dentro del juego.<br>
+                        Proporcionar ejemplos interactivos que muestren cómo se utilizan props y state en React para gestionar la información y el estado de la aplicación.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(1, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(3, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-3">
+                    <p class="temas-header text-align-center">Introducción a la Tecnología</p>
+                    <p>
+                        Tailwind CSS:<br>
+                        Desafiar al usuario a aplicar estilos utilizando clases de Tailwind CSS en lugar de CSS tradicional.<br>
+                        Proporcionar ejemplos prácticos que muestren cómo se pueden utilizar las clases de Tailwind CSS para aplicar estilos de manera rápida y eficiente.<br>
+                        GitHub:<br>
+                        Simular situaciones de colaboración y gestión de proyectos utilizando GitHub dentro del juego.<br>
+                        Proporcionar desafíos que requieran la creación y gestión de repositorios, ramas y pull requests para integrar cambios en el código del juego.<br>
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(2, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(4, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-4">
+                    <p class="temas-header text-align-center">Introducción a la Tecnología</p>
+                    <p>
+                        Scrum:<br>
+                        Introducir conceptos básicos de Scrum y metodologías ágiles mediante desafíos que requieran la planificación y ejecución de tareas dentro del juego.<br>
+                        Mostrar cómo se pueden utilizar las prácticas de Scrum, como las reuniones diarias y las retrospectivas, para mejorar el proceso de desarrollo del juego.<br>
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(3, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(5, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-5">
+                    <p class="temas-header text-align-center">
+                        Estructura y Tecnología Específica en TEDI
+                    </p>
+                    <p>
+                        Estructura de Carpetas Generalizada en Proyectos Tecnológicos de TEDI<br>
+                        Creación y Manejo del Contenido e Idiomas dentro del Código<br>
+                        Estructuración de Componentes y Visualización de los Mismos<br>
+                        Commits, Pushes y Pull Requests<br>
+                        Workflows y Deploys en Vivo<br>
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(4, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(6, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-6">
+                    <p class="temas-header text-align-center">
+                        Detección y Solución de Problemas Tecnológicos
+                    </p>
+                    <p>
+                        ¿El Código es Correcto?<br>
+                        Etiquetas y elementos HTML<br>
+                        Estilado en Tailwind CSS<br>
+                        Uso de estados y Hooks de React<br>
+                        Indexación y estructura de componentes<br>
+                        TypeScript<br>
+                        ¿El Flujo de Trabajo es Correcto?<br>
+                        Se presentarán situaciones del flujo de trabajo, y el usuario deberá determinar si son correctas o no.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(5, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(7, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-7">
+                    <p class="temas-header text-align-center">
+                        Resiliencia Cibernética
+                    </p>
+                    <p>
+                        Resistencia a Ataques<br>
+                        La resiliencia cibernética implica la capacidad de resistir y mitigar los impactos de posibles ataques cibernéticos, como malware, phishing o intrusiones en sistemas. Algunos puntos clave incluyen:<br>
+                        Identificar amenazas y prepararse para enfrentarlas.<br>
+                        Implementar medidas de seguridad robustas para proteger los sistemas.<br>
+                        Responder de manera efectiva ante incidentes de seguridad.<br>
+
+                        Recuperación Rápida<br>
+                        En caso de sufrir un incidente de seguridad, la resiliencia se refleja en la capacidad de recuperarse rápidamente. Esto implica:<br>
+                        Restaurar la funcionalidad de los sistemas afectados.<br>
+                        Minimizar el tiempo de inactividad para mantener la continuidad del negocio.<br>
+                        Tener planes de contingencia y procedimientos claros para la recuperación.<br>
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(6, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="nextTema(8, 'tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+
+
+                <div class="p-3 mb-2 guia d-none" id="tedi-tema-8">
+                    <p class="temas-header text-align-center">
+                        Resiliencia Cibernética
+                    </p>
+                    <p>
+                        Gestión de la Incertidumbre<br>
+                        Las personas resilientes tienen la habilidad de tolerar la incertidumbre y mantener la calma frente a eventos imprevistos. Algunos aspectos relevantes son:<br>
+                        Buscar soluciones prácticas en lugar de dejarse llevar por el pánico.<br>
+                        Adaptarse rápidamente a situaciones cambiantes.<br>
+                        Mantener una mentalidad positiva y proactiva.<br>
+
+                        Aprendizaje Continuo
+                        La resiliencia también implica aprender de los incidentes pasados para fortalecer las defensas y prevenir futuros ataques similares. Algunas estrategias incluyen:<br>
+                        Realizar análisis forenses para comprender las vulnerabilidades.<br>
+                        Realizar revisiones de seguridad periódicas.<br>
+                        Actualizar políticas y procedimientos según las lecciones aprendidas.<br>
+
+                    </p>
+                    <button class="btn btn-temas" onclick="previousTema(7, 'tedi')">
+                        <i class="bi bi-arrow-up-left"></i>
+                    </button>
+                    <button class="btn btn-temas" onclick="complete('tedi')">
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                </div>
+                <div class="p-3 mb-2 guia d-none" id="tedi-completado">
+                    <p class="temas-header">Completado</p>
+                    <p>¡Has completado todos los temas!</p>
+                    <button class="btn btn-temas" onclick="previousTema(1, 'tedi')">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script>const temas = {
+            
+    etica: [
+        {
+            title: "Principios Éticos y Pautas de Conducta",
+            content: "Respeto: Tratar a todas las personas dignamente, sin discriminación por sexo, raza, nacionalidad o religión. Colaborar e impulsar políticas inclusivas. Integridad: Actuar con imparcialidad, justicia y buena fe. Orientar el trabajo hacia la lucha contra la pobreza y la sostenibilidad, evitando beneficios personales de los recursos públicos.",
+            page: 1
+        },
+        {
+            title: "Principios Éticos y Pautas de Conducta",
+            content: "Responsabilidad: Respetar la legislación y actuar honesta y ejemplarmente. Reconocer errores, solucionarlos y evitar su repetición. Profesionalidad: Dedicación, entrega y compromiso con la calidad y la mejora continua. Buscar siempre la excelencia profesional mediante formación permanente. Compromiso: Mantener la lealtad y compromiso con la Organización, proyectos y programas.",
+            page: 2
+        },
+        {
+            title: "Principios Éticos y Pautas de Conducta",
+            content: "Participación y Diálogo: Trabajar en equipo, compartir conocimientos y fomentar la comunicación efectiva. Reconocer el derecho a opinar de todos los afectados. Transparencia: Acreditar de forma veraz y completa los resultados y criterios seguidos. Responder diligentemente a las demandas de información.",
+            page: 3
+        },
+        {
+            title: "Principios Éticos y Pautas de Conducta",
+            content: "Respeto con los Colaboradores: Actuar con compromiso, corresponsabilidad, igualdad e imparcialidad. Colaborar con transparencia y buena fe. Respeto al Resto de Compañeros: Respetar diferentes culturas, dialogar y trabajar en equipo. Respeto a la ONG: Eficacia, honradez, profesionalidad y responsabilidad. Respetar el nombre de la organización como embajadores.",
+            page: 4
+        },
+        {
+            title: "Normas de actuación",
+            content: "Cumplimiento de Leyes: Todos los integrantes de la ONGD deben cumplir todas las leyes en los países en que operamos. Prohibición de Sustancias Psicotrópicas: Queda expresamente prohibido el consumo, posesión o distribución de sustancias psicotrópicas relacionadas con las actividades de la organización. Declaración de Conflictos de Interés: Declarar cualquier conflicto de interés para su correcta resolución. No Explotar Vulnerabilidad: Nunca explotar la vulnerabilidad de una persona, especialmente mujeres o niños.",
+            page: 5
+        },
+        {
+            title: "Normas de actuación",
+            content: "Confidencialidad y Normativas de Ciberseguridad: Respetar la confidencialidad de la información y las normativas de ciberseguridad de la organización. Regalos y Beneficios: El personal no aceptará ni ofrecerá regalos que comprometan la objetividad del proyecto. Responsabilidad de la Dirección: La Dirección garantizará el conocimiento del código y tomará medidas disciplinarias según corresponda. Consecuencias por Incumplimiento de Ley: El incumplimiento de la ley acarreará consecuencias para quienes la vulneren.",
+            page: 6
+        }
+    ],
+    seguridad: [
+        {
+            title: "Objetivos de Ciberseguridad",
+            content: "Educación y Conciencia para Nuevos Usuarios: Proporcionar información y buenas prácticas de seguridad cibernética a los nuevos usuarios. Crear conciencia sobre las amenazas actuales en el mundo digital. Noción para Colaboradores de Awaq sobre Evitar Ataques Cibernéticos: Capacitar a los colaboradores de Awaq para reconocer y prevenir ataques cibernéticos. Fomentar prácticas seguras en el uso de tecnologías y sistemas.",
+            page: 1
+        },
+        {
+            title: "Objetivos de Ciberseguridad",
+            content: "Resiliencia: Recuperación Rápida de Incidentes de Seguridad: Implementar medidas que permitan recuperarse rápidamente de incidentes de seguridad. Minimizar el impacto en las operaciones de la organización. Cumplimiento Normativo en Ciberseguridad: Cumplir con las normativas, estándares y regulaciones relacionadas con la protección de datos y sistemas digitales. Garantizar la seguridad adecuada de la información.",
+            page: 2
+        },
+        {
+            title: "Contraseñas Seguras",
+            content: "Longitud y Composición: Las contraseñas deben tener al menos 12 caracteres (cuando sea posible según la tecnología). Deben contener una mezcla de caracteres alfabéticos y no alfabéticos o al menos dos tipos de caracteres no alfabéticos. No deben incluir el ID del usuario como parte de la contraseña. Evita patrones restringidos como “qwerty”, “asdf”, “1234”, etc. Nunca deben ser un palíndromo. Propiedad y Confidencialidad: La contraseña debe ser exclusivamente de su propiedad y nunca compartirla con nadie.",
+            page: 3
+        },
+        {
+            title: "Ciberataques: Phishing",
+            content: "Definición: El phishing es un tipo de ataque cibernético utilizado para robar datos personales y financieros. Los hackers se hacen pasar por una entidad de confianza para engañar a los destinatarios. Efectos y Precauciones: Un ataque de phishing puede tener efectos devastadores para las personas y las organizaciones. Siempre debemos estar alerta y tomar medidas preventivas.",
+            page: 4
+        },
+        {
+            title: "Indicadores de Phishing",
+            content: "Comprobación del Remitente: Verifica el nombre de dominio del remitente, ya que los atacantes suelen utilizar nombres falsos que imitan organizaciones de confianza. Análisis del Mensaje: Busca fallos gramaticales o faltas ortográficas en el mensaje del correo. Está atento a inconsistencias en la información proporcionada. Solicitudes Sospechosas: Revise si hay solicitudes inusuales en el correo. No hagas clic en enlaces sin verificar su procedencia y validez.",
+            page: 5
+        },
+        {
+            title: "Consejos Útiles",
+            content: "Al recibir correos electrónicos externos: Si necesitas ponerte en contacto con el remitente, no respondas al correo original ni llames al número proporcionado. Verifica primero que el remitente sea legítimo. Desconfía de muestras de aprecio, elogios, recompensas o felicitaciones sin razón aparente. Verifica la URL en la página de inicio de sesión de SSO. Las apariencias pueden engañar. Si identificas un correo phishing, reporta con el botón de phishing y alerta a seguridad@somosawaq.org.",
+            page: 6
+        },
+        {
+            title: "Consejos Útiles",
+            content: "Al recibir correos electrónicos externos, si es necesario ponerse en contacto con el remitente, no responda al correo electrónico original ni llame al numero proporcionado. Asegúrese de verificar primero que el remitente sea legitimo. Las muestras de aprecio, los elogios, las recompensas, las felicitaciones o los obsequios recibidos sin ninguna razón especial deber ser tratados con precaución. Verifique la URL en la página de inicio de sesión de SSO. No juzgue por el aspecto de la página; las apariencias engañan.",
+            page: 7
+        },
+        {
+            title: "Cumplimiento",
+            content: "La organización tiene una política de cero tolerancias para fraudes o violaciones de seguridad. Las sanciones disciplinarias en línea con las leyes locales y los principios de justicia natural serán administradas y aplicadas con los procesos disciplinarios o sancionatorios de la organización.",
+            page: 8
+        }
+    ],
+    tedi: [
+        {
+            title: "Introducción a la Tecnología",
+            content: "HTML: Presentar desafíos que requieran la identificación y manipulación de elementos HTML dentro del juego. Proporcionar ejemplos interactivos que muestren cómo se estructura y utiliza HTML para crear contenido web. CSS: Desafiar al usuario a aplicar estilos CSS a elementos específicos dentro del juego para cambiar su apariencia. Proporcionar ejercicios prácticos que muestren cómo se utilizan selectores CSS para dirigirse a elementos específicos en una página web.",
+            page: 1
+        },
+        {
+            title: "Introducción a la Tecnología",
+            content: "TypeScript: Introducir conceptos básicos de tipado estático y clases en TypeScript mediante desafíos que requieran la manipulación de datos dentro del juego. React: Presentar desafíos que requieran la creación y manipulación de componentes React dentro del juego. Proporcionar ejemplos interactivos que muestren cómo se utilizan props y state en React para gestionar la información y el estado de la aplicación.",
+            page: 2
+        },
+        {
+            title: "Introducción a la Tecnología",
+            content: "Tailwind CSS: Desafiar al usuario a aplicar estilos utilizando clases de Tailwind CSS en lugar de CSS tradicional. Proporcionar ejemplos prácticos que muestren cómo se pueden utilizar las clases de Tailwind CSS para aplicar estilos de manera rápida y eficiente. GitHub: Simular situaciones de colaboración y gestión de proyectos utilizando GitHub dentro del juego. Proporcionar desafíos que requieran la creación y gestión de repositorios, ramas y pull requests para integrar cambios en el código del juego.",
+            page: 3
+        },
+        {
+            title: "Introducción a la Tecnología",
+            content: "Scrum: Introducir conceptos básicos de Scrum y metodologías ágiles mediante desafíos que requieran la planificación y ejecución de tareas dentro del juego. Mostrar cómo se pueden utilizar las prácticas de Scrum, como las reuniones diarias y las retrospectivas, para mejorar el proceso de desarrollo del juego.",
+            page: 4
+        },
+        {
+            title: "Estructura y Tecnología Específica en TEDI",
+            content: "Estructura de Carpetas Generalizada en Proyectos Tecnológicos de TEDI. Creación y Manejo del Contenido e Idiomas dentro del Código. Estructuración de Componentes y Visualización de los Mismos. Commits, Pushes y Pull Requests. Workflows y Deploys en Vivo.",
+            page: 5
+        },
+        {
+            title: "Detección y Solución de Problemas Tecnológicos",
+            content: "¿El Código es Correcto? Etiquetas y elementos HTML. Estilado en Tailwind CSS. Uso de estados y Hooks de React. Indexación y estructura de componentes. TypeScript. ¿El Flujo de Trabajo es Correcto? Se presentarán situaciones del flujo de trabajo, y el usuario deberá determinar si son correctas o no.",
+            page: 6
+        },
+        {
+            title: "Resiliencia Cibernética",
+            content: "Resistencia a Ataques: La resiliencia cibernética implica la capacidad de resistir y mitigar los impactos de posibles ataques cibernéticos, como malware, phishing o intrusiones en sistemas. Algunos puntos clave incluyen: Identificar amenazas y prepararse para enfrentarlas. Implementar medidas de seguridad robustas para proteger los sistemas. Responder de manera efectiva ante incidentes de seguridad. Recuperación Rápida: En caso de sufrir un incidente de seguridad, la resiliencia se refleja en la capacidad de recuperarse rápidamente. Esto implica: Restaurar la funcionalidad de los sistemas afectados. Minimizar el tiempo de inactividad para mantener la continuidad del negocio. Tener planes de contingencia y procedimientos claros para la recuperación.",
+            page: 7
+        },
+        {
+            title: "Resiliencia Cibernética",
+            content: "Gestión de la Incertidumbre: Las personas resilientes tienen la habilidad de tolerar la incertidumbre y mantener la calma frente a eventos imprevistos. Algunos aspectos relevantes son: Buscar soluciones prácticas en lugar de dejarse llevar por el pánico. Adaptarse rápidamente a situaciones cambiantes. Mantener una mentalidad positiva y proactiva. Aprendizaje Continuo: La resiliencia también implica aprender de los incidentes pasados para fortalecer las defensas y prevenir futuros ataques similares. Algunas estrategias incluyen: Realizar análisis forenses para comprender las vulnerabilidades. Realizar revisiones de seguridad periódicas. Actualizar políticas y procedimientos según las lecciones aprendidas.",
+            page: 8
+        }
+    ]
+        };
+
+        function showGuia(guia) {
+            document.querySelectorAll('.guia-section').forEach(element => {
+                element.style.display = 'none';
+            });
+            document.getElementById(`guia-${guia}`).style.display = 'block';
+            // Reset to first topic of the guide
+            resetToFirstTema(guia);
+        }
+
+        function nextTema(tema, guia) {
+            document.querySelectorAll(`#guia-${guia} .guia`).forEach(element => {
+                element.classList.add('d-none');
+            });
+            document.getElementById(`${guia}-tema-${tema}`).classList.remove('d-none');
+        }
+
+        function previousTema(tema, guia) {
+            document.querySelectorAll(`#guia-${guia} .guia`).forEach(element => {
+                element.classList.add('d-none');
+            });
+            document.getElementById(`${guia}-tema-${tema}`).classList.remove('d-none');
+        }
+
+        function complete(guia) {
+            document.querySelectorAll(`#guia-${guia} .guia`).forEach(element => {
+                element.classList.add('d-none');
+            });
+            document.getElementById(`${guia}-completado`).classList.remove('d-none');
+        }
+
+        function resetToFirstTema(guia) {
+            document.querySelectorAll(`#guia-${guia} .guia`).forEach(element => {
+                element.classList.add('d-none');
+            });
+            document.getElementById(`${guia}-tema-1`).classList.remove('d-none');
+        }
+
+
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+
+            for (const guide in temas) {
+
+                temas[guide].forEach(tema => {
+                    if (tema.title.toLowerCase().includes(query) || tema.content.toLowerCase().includes(query)) {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'search-result';
+                        resultItem.innerHTML = `
+                                <b>${tema.title}</b>
+                                <button class="btn btn-search btn-sm btn-primary ml-2" onclick="navigateTo('${guide}', ${tema.page})"><i class="bi bi-arrow-right-circle"></i></button>
+                            `;
+                        searchResults.appendChild(resultItem);
+
+                    }
+                });
+            }
+        });
+
+        function navigateTo(guia, page) {
+            showGuia(guia);
+            nextTema(page, guia);
+        }
+
+        window.onload = function () {
+            showGuia('etica');
+        };</script>
+</body>
+</html>
